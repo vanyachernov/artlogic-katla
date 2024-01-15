@@ -119,16 +119,14 @@ OS: win32 x64
 
 ## Репозитории
 
-Для работы потребуется [сделать личные копии репозиториев](https://help.github.com/articles/fork-a-repo/) katla-sport и katla-sport-ng, а затем клонировать их на локальный диск.
+Для работы потребуется [сделать личные копии репозитория](https://help.github.com/articles/fork-a-repo/) artlogic-katla, а затем клонировать его на локальный диск.
 
 1. Открыть [github.com](https://github.com/).
 2. Войти на сайт под своим аккаунтом.
-3. Открыть репозиторий [katla-sport](https://github.com/artlogic-lab/katla-sport).
+3. Открыть репозиторий [artlogic-katla](https://github.com/belpyro/artlogic-katla).
 4. Нажать кнопку "Fork".
-5. Открыть репозиторий [katla-sport-ng](https://github.com/artlogic-lab/katla-sport-ng).
-6. Нажать кнопку "Fork".
-7. Откройте "Git CMD" в "Пуск".
-8. Перейдите в рабочий каталог:
+5. Откройте "Git CMD" в "Пуск".
+6. Перейдите в рабочий каталог:
 
 ```sh
 C:\Users\%user%>d:
@@ -136,13 +134,13 @@ D:\>mkdir artlogic-lab
 D:\>cd artlogic-lab
 ```
 
-9. Перейдите на страницу личного репозитория katla-sport. Например, если имя вашего пользователя mygituser, то страница - https://github.com/mygituser/katla-sport.
+9. Перейдите на страницу личного репозитория artlogic-katla. Например, если имя вашего пользователя mygituser, то страница - https://github.com/mygituser/artlogic-katla.
 10. Нажмите на кнопку "Clone or download" и скопируйте в окне "Clone with SSH" путь к репозиторию.
 11. Клонируйте репозиторий:
 
 ```sh
-D:\artlogic-lab>git clone https://github.com/mygituser/katla-sport/
-Cloning into 'katla-sport'...
+D:\artlogic-lab>git clone https://github.com/mygituser/artlogic-katla/
+Cloning into 'artlogic-katla'...
 The authenticity of host 'github.com (192.30.253.113)' can't be established.
 RSA key fingerprint is SHA256:...
 Are you sure you want to continue connecting (yes/no)? yes
@@ -154,15 +152,7 @@ Receiving objects: ..
 Resolving deltas: ...
 ```
 
-12. Повторите для katla-sport-ng.
-
-```sh
-D:\artlogic-lab>git clone https://github.com/mygituser/katla-sport-ng/
-Cloning into 'katla-sport-ng'...
-...
-```
-
-13. Настройте имя и email для Git:
+12. Настройте имя и email для Git:
 
 ```sh
 D:\artlogic-lab\git config --global user.email "myemail@gmail.com"
