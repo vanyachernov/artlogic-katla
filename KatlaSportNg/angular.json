@@ -121,5 +121,8 @@
       }
     }
   },
-  "defaultProject": "katla-front"
+  "defaultProject": "katla-front",
+  "cli": {
+    "analytics": false
+  }
 }
