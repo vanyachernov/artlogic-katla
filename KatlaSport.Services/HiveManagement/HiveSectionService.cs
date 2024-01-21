@@ -39,7 +39,7 @@ namespace KatlaSport.Services.HiveManagement
         /// <inheritdoc/>
         public async Task<HiveSection> GetHiveSectionAsync(int hiveSectionId)
         {
-            var dbHiveSections = await _context.Sections.Where(s => s.Id == hiveSectionId).ToArrayAsync();
+            var dbHiveSections = await _context.Sections.Where(s => hiveSectionId == s.Id).ToArrayAsync();
             if (dbHiveSections.Length == 0)
             {
                 throw new RequestedResourceNotFoundException();
@@ -59,7 +59,7 @@ namespace KatlaSport.Services.HiveManagement
         /// <inheritdoc/>
         public async Task SetStatusAsync(int hiveSectionId, bool deletedStatus)
         {
-            var dbSections = await _context.Sections.Where(c => hiveSectionId == c.Id).ToArrayAsync();
+            var dbSections = await _context.Sections.Where(c => c.Id == hiveSectionId).ToArrayAsync();
 
             if (dbSections.Length == 0)
             {
