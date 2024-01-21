@@ -16,6 +16,9 @@
             <div class="btn-group mr-2" role="group" aria-label="Delete group" *ngIf="!section.isDeleted" (click)="onDelete(section.id)">
               <button type="button" class="btn btn-danger">Delete</button>
             </div>
+            <div class="btn-group mr-2" role="group" aria-label="Undelete group" *ngIf="section.isDeleted" (click)="onUndelete(section.id)">
+              <button type="button" class="btn btn-success">Undelete</button>
+            </div>
             <div class="btn-group" role="group" aria-label="Edit section">
               <button routerLink="/section/{{section.id}}" type="button" class="btn btn-primary">Edit</button>
             </div>
