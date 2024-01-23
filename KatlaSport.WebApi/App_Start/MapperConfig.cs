@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KatlaSport.Services.HiveManagement;
 using System;
 using System.Linq;
 
@@ -18,6 +19,7 @@ namespace KatlaSport.WebApi
             {
                 var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("KatlaSport")).ToArray();
                 cfg.AddProfiles(assemblies);
+                cfg.AddProfile<HiveManagementMappingProfile>();
             });
         }
     }
