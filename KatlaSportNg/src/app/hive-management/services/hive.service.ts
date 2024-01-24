@@ -10,7 +10,7 @@ import { HiveSectionListItem } from '../models/hive-section-list-item';
   providedIn: 'root'
 })
 export class HiveService {
-  private url = environment.apiUrl + 'api/hives/';
+  private url = environment.apiUrl + 'api/hives';
 
   constructor(private http: HttpClient) { }
 
@@ -19,23 +19,23 @@ export class HiveService {
   }
 
   getHive(hiveId: number): Observable<Hive> {
-    return this.http.get<Hive>(`${this.url}${hiveId}`);
+    return this.http.get<Hive>(`${this.url}/${hiveId}`);
   }
 
   getHiveSections(hiveId: number): Observable<Array<HiveSectionListItem>> {
-    return this.http.get<Array<HiveSectionListItem>>(`${this.url}${hiveId}/sections`);
+    return this.http.get<Array<HiveSectionListItem>>(`${this.url}/${hiveId}/sections`);
   }
   
   addHive(hive: Hive): Observable<Hive> {
-    return null;
+    return this.http.post<Hive>(`${this.url}`, hive);
   }
 
   updateHive(hive: Hive): Observable<Object> {
-    return null;
+    return this.http.put(`${this.url}/${hive.id}`, hive);
   }
 
   deleteHive(hiveId: number): Observable<Object> {
-    return null;
+    return this.http.delete(`${this.url}/${hiveId}`);
   }
 
   setHiveStatus(hiveId: number, deletedStatus: boolean): Observable<Object> {
