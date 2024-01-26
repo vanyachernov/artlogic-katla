@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HiveSectionListItem } from '../models/hive-section-list-item';
 import { HiveSectionService } from '../services/hive-section.service';
 import { HiveService } from '../services/hive.service';
+import { HiveSection } from '../models/hive-section';
 
 @Component({
   selector: 'app-hive-section-list',
@@ -13,6 +14,7 @@ export class HiveSectionListComponent implements OnInit {
 
   hiveId: number;
   hiveSections: Array<HiveSectionListItem>;
+  selectedSection: HiveSection;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +28,10 @@ export class HiveSectionListComponent implements OnInit {
       this.hiveId = p['id'];
       this.hiveService.getHiveSections(this.hiveId).subscribe(s => this.hiveSections = s);
     })
+  }
+
+  editSection(section: HiveSection): void {
+    this.selectedSection = section;
   }
 
   onDelete(sectionListId: number) {

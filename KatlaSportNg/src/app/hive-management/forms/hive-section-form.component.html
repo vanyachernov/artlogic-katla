@@ -1,3 +1,40 @@
-<p>
-  hive-section-form works!
-</p>
+<div class="container" *ngIf="section">
+  <h2>{{ isNewSection ? 'Add New Hive Section' : 'Edit Hive Section' }}</h2>
+  <form (ngSubmit)="onSubmit()" #sectionForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" minlength="4" maxlength="60" required [(ngModel)]="section.name">
+      <div *ngIf="sectionForm.controls['name']?.invalid && sectionForm.controls['name']?.touched" class="alert alert-danger">
+          <div *ngIf="sectionForm.controls['name'].errors?.required">The section name is required.</div>
+          <div *ngIf="sectionForm.controls['name'].errors?.minlength">The section name must be longer than 4 characters.</div>
+          <div *ngIf="sectionForm.controls['name'].errors?.maxlength">The section title should not exceed 300 characters.</div>
+      </div>
+  </div>
+    <div class="form-group">
+      <label for="code">Code:</label>
+      <input type="text" class="form-control" id="code" name="code" minlength="5" maxlength="5" required [(ngModel)]="section.code">
+      <div *ngIf="sectionForm.controls['code']?.invalid && sectionForm.controls['name']?.touched" class="alert alert-danger">
+        <div *ngIf="sectionForm.controls['code'].errors?.required">The section code is required.</div>
+        <div *ngIf="sectionForm.controls['code'].errors?.minlength">The code must be 5 characters long.</div>
+        <div *ngIf="sectionForm.controls['code'].errors?.maxlength">The code must be 5 characters long.</div>
+    </div>
+    </div>
+    <div class="btn-toolbar" role="toolbar" aria-label="Action buttons">
+      <div class="btn-group" role="group" aria-label="Back group">
+        <button type="button" class="btn btn-primary mr-2" (click)="navigateToSections()">Back</button>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Save group">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Delete group" *ngIf="!isNewSection && section && !section.isDeleted">
+        <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Undelete group" *ngIf="section && section.isDeleted">
+        <button type="button" class="btn btn-success" (click)="onUndelete()">Undelete</button>
+      </div>
+      <div class="btn-group" role="group" aria-label="Purge group" *ngIf="!isNewSection && section && section.isDeleted">
+        <button type="button" class="btn btn-danger" (click)="onPurge()">Purge</button>
+      </div>
+    </div>
+  </form>
+</div>
